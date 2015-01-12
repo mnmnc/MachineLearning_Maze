@@ -105,7 +105,6 @@ def count_neighbours_with_value(graph, cords, value):
 	if graph[x+1][y] == 1:
 		count += 1
 
-	#print(count)
 	return count
 
 
@@ -209,25 +208,23 @@ def main():
 	debug_counter = 0
 	exit_found = False
 
-	count_neighbours_with_value(graph,current_position, wall_value)
 
-
-	while debug_counter < 2:
-		debug_counter += 1
-
+	while debug_counter < 451:
+		print(" ")
 		print(current_position)
+
+		if current_position == end:
+			debug_counter == 999
+			print("Finished")
+			break
+
+		debug_counter += 1
 
 		count = count_neighbours_with_value(graph,current_position, wall_value)
 		print("count:", count)
 
-		if current_position == end:
-			exit_found = True
-			print_graph_as_x_matrix(graph)
-			im = create_image(len(graph)*2)
-			draw_graph_on_image(im, graph)
-			save_image(im, output_file)
-			print("exit found")
-		elif count > 2 and current_position != begin and current_position != end:
+
+		if count > 2 and current_position != begin and current_position != end:
 			graph[current_position[0]][current_position[1]] += visited_twice
 		else:
 			graph[current_position[0]][current_position[1]] += visited_once
@@ -237,14 +234,64 @@ def main():
 		if len(next_moves) > 1:
 			graph[current_position[0]][current_position[1]] = visited_once
 
+		visited =[]
+		unvisited = []
+		for move in next_moves:
+			if move[2] == unvisited_value:
+				unvisited.append(move)
+			if move[2] == visited_once:
+				visited.append(move)
+
+		selected_move = []
+		if len(unvisited) > 0:
+			if len(unvisited) > 1:
+				random_number = random.randint(0, len(unvisited)-1)
+				selected_move = unvisited[random_number]
+			else:
+				selected_move = unvisited[0]
+		else:
+			if len(visited) > 1:
+				random_number = random.randint(0, len(visited)-1)
+				selected_move = visited[random_number]
+			else:
+				selected_move = visited[0]
+
+		current_position = (selected_move[0], selected_move[1])
+
+
 		print_graph_as_x_matrix(graph)
 
-		unvisited_paths = []
-		visited_paths = []
 
-		for move in next_moves:
-			print(move)
-		exit_found = True
+
+
+
+
+		# if current_position == end:
+		# 	exit_found = True
+		# 	print_graph_as_x_matrix(graph)
+		# 	im = create_image(len(graph)*2)
+		# 	draw_graph_on_image(im, graph)
+		# 	save_image(im, output_file)
+		# 	print("exit found")
+		# elif count > 2 and current_position != begin and current_position != end:
+		# 	graph[current_position[0]][current_position[1]] += visited_twice
+		# else:
+		# 	graph[current_position[0]][current_position[1]] += visited_once
+		#
+		# next_moves = get_available_moves(graph,current_position, [unvisited_value, visited_once])
+		#
+		# if len(next_moves) > 1:
+		# 	graph[current_position[0]][current_position[1]] = visited_once
+		#
+		# print_graph_as_x_matrix(graph)
+		#
+		# unvisited_paths = []
+		# visited_paths = []
+		#
+		# for move in next_moves:
+		# 	print(move)
+		# exit_found = True
+
 		# lowest_value = 9
 		# selected_moves = []
 		# selected_move = []
