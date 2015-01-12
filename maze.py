@@ -325,6 +325,8 @@ other = """
 other2 = """*************************************************** *************************************************
 * *     *             *     *           *   *     *     *   *             *       *     *     *     *"""
 
+
+
 parsed_data = []
 
 
@@ -440,64 +442,64 @@ for row in graph_trans:
 
 print(counter)
 
-
-ngraph = []
-
-for row in other.split("\n"):
-	grow = []
-	if len(row) > 10:
-		for ele in row:
-			if ele == "*":
-				grow.append(1)
-			else:
-				grow.append(0)
-		print(grow)
-		ngraph.append(grow)
-
-print(" ")
-for row in ngraph:
-	for point in row:
-		if point == 1:
-			print("XX", end="")
-		else:
-			print("  ",end="")
-
-	print(" ")
-
-print(len(ngraph[1]))
-
-
-
-changes = 1
-first_pass = 1
-counter = 0
-while changes != 0 or first_pass == 1:
-#for k in range(20):
-	first_pass = 0
-	changes = 0
-	counter+=1
-	for i in range(len(ngraph)):
-		print(ngraph[i])
-		for j in range(len(ngraph[i])):
-			if (i > 0) and (i < 60) and not ( j > 100) and (i - 1 > -1) and ( j - 1 > -1 ):
-				if ngraph[i][j] == 0:
-					print( i, j,  ngraph[i][j])
-					neigh_1 = ngraph[i+1][j]
-					neigh_2 = ngraph[i][j+1]
-					neigh_3 = ngraph[i-1][j]
-					neigh_4 = ngraph[i][j-1]
-
-					sum = neigh_1 + neigh_2 + neigh_3 + neigh_4
-					if sum > 2:
-						ngraph[i][j] = 1
-						changes += 1
-
-						print(" ")
-for row in ngraph:
-	for point in row:
-		if point == 1:
-			print("XX", end="")
-		else:
-			print("  ",end="")
-
-	print(" ")
+#
+# ngraph = []
+#
+# for row in other.split("\n"):
+# 	grow = []
+# 	if len(row) > 10:
+# 		for ele in row:
+# 			if ele == "*":
+# 				grow.append(1)
+# 			else:
+# 				grow.append(0)
+# 		print(grow)
+# 		ngraph.append(grow)
+#
+# print(" ")
+# for row in ngraph:
+# 	for point in row:
+# 		if point == 1:
+# 			print("XX", end="")
+# 		else:
+# 			print("  ",end="")
+#
+# 	print(" ")
+#
+# print(len(ngraph[1]))
+#
+#
+#
+# changes = 1
+# first_pass = 1
+# counter = 0
+# while changes != 0 or first_pass == 1:
+# #for k in range(20):
+# 	first_pass = 0
+# 	changes = 0
+# 	counter+=1
+# 	for i in range(len(ngraph)):
+# 		print(ngraph[i])
+# 		for j in range(len(ngraph[i])):
+# 			if (i > 0) and (i < 60) and not ( j > 100) and (i - 1 > -1) and ( j - 1 > -1 ):
+# 				if ngraph[i][j] == 0:
+# 					print( i, j,  ngraph[i][j])
+# 					neigh_1 = ngraph[i+1][j]
+# 					neigh_2 = ngraph[i][j+1]
+# 					neigh_3 = ngraph[i-1][j]
+# 					neigh_4 = ngraph[i][j-1]
+#
+# 					sum = neigh_1 + neigh_2 + neigh_3 + neigh_4
+# 					if sum > 2:
+# 						ngraph[i][j] = 1
+# 						changes += 1
+#
+# 						print(" ")
+# for row in ngraph:
+# 	for point in row:
+# 		if point == 1:
+# 			print("XX", end="")
+# 		else:
+# 			print("  ",end="")
+#
+# 	print(" ")
