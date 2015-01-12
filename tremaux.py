@@ -136,6 +136,7 @@ def get_available_moves(graph, cords, values_allowed):
 
 	return result
 
+
 def draw_graph_on_image(image, graph):
 
 	start_color = (100,100,200)
@@ -177,6 +178,15 @@ def draw_graph_on_image(image, graph):
 				image.putpixel((i*2+1,j*2), wall_color)
 				image.putpixel((i*2,j*2+1), wall_color)
 				image.putpixel((i*2+1,j*2+1), wall_color)
+
+
+def get_field_count_by_value(graph, value):
+	count = 0
+	for row in graph:
+		for ele in row:
+			if ele == value:
+				count += 1
+	return count
 
 def main():
 
@@ -232,8 +242,11 @@ def main():
 		# CHECK IF MR TREMAUX REACHED THE END
 		if current_position == end:
 			print("Time spent solving:", time.time() - start_time)
+			print("Iterations counted:", iteration)
+			print("Path lenght:", get_field_count_by_value(graph, visited_once))
+			print("Dead ends lenght:", get_field_count_by_value(graph, visited_twice))
 			exit_found = True
-			#print_graph_as_x_matrix(graph)
+
 			draw_graph_on_image(im, graph)
 			save_image(im, output_file)
 			break
