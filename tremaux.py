@@ -191,9 +191,9 @@ def get_field_count_by_value(graph, value):
 def main():
 
 	# FILE VARIABLES
-	input_file = "labirynth_cords.txt"
-	output_file = "maze2.png"
-	small_input_file = "small_maze.txt"
+	input_file = "maze_128x128.txt"
+	output_file = "tremaux.png"
+	small_input_file = "maze_16x16.txt"
 
 	# PSEUDO-COLORS VALUES
 	wall_value = 1

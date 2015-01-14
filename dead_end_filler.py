@@ -172,9 +172,9 @@ def highlight_path(graph):
 def main():
 
 	# VARIABLES
-	input_file = "labirynth_cords.txt"
-	output_file = "maze.png"
-	small_input_file = "small_maze.txt"
+	input_file = "maze_128x128.txt"
+	output_file = "dead_end_filler.png"
+	small_input_file = "maze_16x16.txt"
 
 
 	# PARSING FILE
