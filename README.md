@@ -13,15 +13,12 @@ Both contain coordinates for each wall in a maze.
 #### Input format:
 
 Two first are x and y coordinates. Last one is an instruction how to draw a wall.
-
-`0 0 0` - means draw in 0,0: one wall down and one wall to the right. `┌`
-
-`0 0 1` - means draw in 0,0: only wall to the right `─`
-
-`0 0 2` - means draw in 0,0: only wall down `│`
-
-`0 0 3` - means draw in 0,0: no wall at all
-
+```python
+0 0 0 - means draw in 0,0: one wall down and one wall to the right.    ┌
+0 0 1 - means draw in 0,0: only wall to the right                      ─
+0 0 2 - means draw in 0,0: only wall down                              │
+0 0 3 - means draw in 0,0: no wall at all
+```
 
 ## Output for Tremaux:
 ```python
