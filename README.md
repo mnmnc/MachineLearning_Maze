@@ -25,7 +25,7 @@ Two first are x and y coordinates. Last one is an instruction how to draw a wall
 
 ## Output for Tremaux:
 ```python
-Time spent solving: 0.11201095581054688
+Time spent solving: 0.11201095581054688 seconds
 Iterations counted: 14641
 Path lenght: 5547
 Dead ends lenght: 4547
@@ -36,6 +36,7 @@ Dead ends lenght: 4547
 ## Output for Dead End Filler
 
 Long processing time.
+
 ![Maze solved with Dead End Filler algorithm](https://raw.githubusercontent.com/mnmnc/img/master/dead_end_filler.png)
 
 ## Bonus round 
