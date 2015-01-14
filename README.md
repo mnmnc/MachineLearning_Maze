@@ -36,6 +36,12 @@ Dead ends lenght: 4547
 ## Output for Dead End Filler
 
 Long processing time.
+```python
+Time spent solving: 119.60996007919312 seconds
+Iterations counted: 3700
+Path length: 0
+Dead ends length: 27218
+```
 
 ![Maze solved with Dead End Filler algorithm](https://raw.githubusercontent.com/mnmnc/img/master/dead_end_filler.png)
 
