@@ -139,11 +139,11 @@ def get_available_moves(graph, cords, values_allowed):
 
 def draw_graph_on_image(image, graph):
 
-	start_color = (100,100,200)
-	end_color = (100,200,100)
-	final_path_color = (200,200,100)
-	wall_color = (0,0,0)
-	dead_end_color = (200,200,200)
+	start_color = (127,31,25)
+	end_color = (127,31,25)
+	final_path_color = (127,31,25)
+	wall_color = (127,117,116)
+	dead_end_color = (255,134,126)
 	default_color = (255,255,255)
 
 	for i in range(len(graph)):
