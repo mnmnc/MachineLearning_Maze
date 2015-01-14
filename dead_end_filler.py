@@ -1,5 +1,6 @@
 from PIL import Image
 import math
+import time
 
 def print_graph_as_x_matrix(graph):
 	for row in graph:
@@ -136,10 +137,13 @@ def draw_graph_on_image(image, graph):
 				image.putpixel((i*2+1,j*2+1), wall_color)
 
 def dead_end_filler(graph, begin_x, begin_y, end_x, end_y):
+	global iteration
 	changes = 1
 	first_pass = 1
 	counter = 0
+	iteration = 0
 	while changes != 0 or first_pass == 1:
+		iteration += 1
 		first_pass = 0
 		changes = 0
 		counter+=1
@@ -169,13 +173,25 @@ def highlight_path(graph):
 			if graph[i][j] == 0:
 				graph[i][j] = 0.04
 
+def get_field_count_by_value(graph, value):
+	count = 0
+	for row in graph:
+		for ele in row:
+			if ele == value:
+				count += 1
+	return count
+
 def main():
 
 	# VARIABLES
 	input_file = "maze_128x128.txt"
 	output_file = "dead_end_filler.png"
 	small_input_file = "maze_16x16.txt"
+	global iteration
 
+	# PSEUDO-COLORS VALUES
+	visited_once = 0.04
+	visited_twice = 1.01
 
 	# PARSING FILE
 	parsed_cords = parse_cords_file(input_file)
@@ -204,9 +220,17 @@ def main():
 	# SHOWING GRAPH
 	#show_image(im)
 
+	start_time = time.time()
+
 	# DEAD END FILLER
 	graph = dead_end_filler(graph, 1, 1, 255, 255)
 	#graph = dead_end_filler(graph, 1, 1, 31, 31)
+
+	# INFO
+	print("Time spent solving:", time.time() - start_time, "seconds")
+	print("Iterations counted:", iteration)
+	print("Path length:", get_field_count_by_value(graph, visited_once))
+	print("Dead ends length:", get_field_count_by_value(graph, visited_twice))
 
 	# MARK PATH
 	highlight_path(graph)

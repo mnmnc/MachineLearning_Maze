@@ -241,10 +241,10 @@ def main():
 
 		# CHECK IF MR TREMAUX REACHED THE END
 		if current_position == end:
-			print("Time spent solving:", time.time() - start_time)
+			print("Time spent solving:", time.time() - start_time, "seconds")
 			print("Iterations counted:", iteration)
-			print("Path lenght:", get_field_count_by_value(graph, visited_once))
-			print("Dead ends lenght:", get_field_count_by_value(graph, visited_twice))
+			print("Path length:", get_field_count_by_value(graph, visited_once))
+			print("Dead ends length:", get_field_count_by_value(graph, visited_twice))
 			exit_found = True
 
 			draw_graph_on_image(im, graph)
